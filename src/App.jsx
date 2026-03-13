@@ -44,7 +44,7 @@ function App() {
 
       <div style = {{display:"flex", gap:12, flexWrap: "wrap" }}>
         {pokemons.map((pokemon, i) =>(
-          <PokemonID pokemon={pokemon} />
+          <PokemonID key={i} pokemon={pokemon} />
           )
         )
         }

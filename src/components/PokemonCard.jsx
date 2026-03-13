@@ -1,4 +1,4 @@
-const Card = ({ children, borderColor }) => {
+const Card = ({ children, borderColor}) => {
   return (
     <div
       style={{
@@ -6,7 +6,7 @@ const Card = ({ children, borderColor }) => {
         borderColor: borderColor,
         borderRadius: 8,
         padding: 16,
-        backgroundColor: "white",
+        backgroundColor: borderColor + "33",
         width: "150px",
         height: "250px",
       }}

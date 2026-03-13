@@ -31,16 +31,37 @@ const PokemonId = ({ pokemon }) => {
   return (
     <div>
         <Card borderColor ={typeColors[pokemon.type]}> 
-            <h3 style={{ color:typeColors[pokemon.type], margin: "0 0 3px" }}>{pokemon.name}</h3>
-            <p style={{ fontWeight: "bold" }}>{typeEmojis[pokemon.type]} {pokemon.type}</p>
-            <img 
-                style={{ width: "100%", height: "120px", objectFit: "contain"}}
-                src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${pokemon.id}.png`} 
-                alt={pokemon.name}
-            />
-            <div style={{ display: "flex", justifyContent: "space-between"}}>
-                <p>HP: {pokemon.hp}</p>
-                <p>Attack: {pokemon.attack}</p>
+            <h3 style={{color:typeColors[pokemon.type], margin: "0 0 2px 0"}}>{typeEmojis[pokemon.type]} {pokemon.type}</h3>
+            <h3 style={{margin: "0 0 8px 0"}}>{pokemon.name}</h3>
+            
+            <div style={{
+                backgroundColor: "white",
+                borderRadius: "50%",
+                border: "1px solid",
+                borderColor: typeColors[pokemon.type],
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                padding: "4px",
+            }}>
+                
+                <img 
+                    style={{ width: "100%", height: "120px", objectFit: "contain"}}
+                    src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${pokemon.id}.png`} 
+                    alt={pokemon.name}
+                />
+            </div>
+
+            <div style={{display:"flex", justifyContent: "space-between", width: "80%", margin:"10px 0 0 15px" }}>
+                <div style={{display: "flex", flexDirection: "column", gap: "2px"}}>
+                  <p style={{margin: 0, fontSize: "12px", color: "gray"}}>HP </p>
+                  <p style={{margin: 0, fontWeight: "500"}}>{pokemon.hp}</p>
+                </div>
+                <div style={{display: "flex", flexDirection: "column", gap: "2px"}}>
+                  <p style={{margin: 0, fontSize: "12px", color: "gray"}}>Attack </p>
+                  <p style={{margin: 0, fontWeight: "500"}}>{pokemon.attack}</p>
+                </div>
+
             </div>
         </Card>
     </div>
