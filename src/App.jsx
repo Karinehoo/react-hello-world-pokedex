@@ -1,7 +1,7 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
 import './App.css'
 import PokemonID from './components/PokemonId'
+import FilterButton from './components/PokemonTypeButton'
 
 
 
@@ -28,22 +28,43 @@ const pokemons = [
   { id: 148, name: "Dragonair", type: "Dragon", hp: 61, attack: 84 },
 ];
 
-// Sprite image URL pattern:
-// `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${id}.png`
-
-
-//<PokemonID pokemon={pokemons[0]} />
 
 
 function App() {
 
+  const [selectedType, setSelectedType] = useState(null)
+  const types = ["Grass", "Fire", "Water" ,"Electric", "Psychic", "Normal", "Dragon", "Ghost", "Fighting", "Rock"] 
+  const filteredPokemons = selectedType ? pokemons.filter(p => p.type === selectedType) : pokemons
+
   return (
     <div>
+      <div style={{
+        display: "flex", 
+        justifyContent: "space-between", 
+        alignItems: "center"}}>
+  
+        <h1> Pokédex</h1>
+        <img src="../public/pokemon-logo.png" style={{height: "45px"}} />
+      </div>
 
-      <h1>Pokemon</h1>
+      <div style={{display: "flex", gap: 8, flexWrap: "wrap", marginBottom: 16, alignItems: "center"}}>
+        <button onClick={() => setSelectedType(null)}
+          style = {{
+            color: "black",
+            borderRadius: 4,
+            padding: "2px 8px",
+            fontSize: "16px",
+            cursor: "pointer",
+            border: "None"}}>All</button>
+        <div style={{width: "3px", height: "20px", backgroundColor: "#ccc"}} />
+        {types.map(type => (
+          <FilterButton type={type} onSelect={setSelectedType} />
+        ))}
+      </div>
 
-      <div style = {{display:"flex", gap:12, flexWrap: "wrap" }}>
-        {pokemons.map((pokemon, i) =>(
+
+      <div style = {{display:"flex", gap:12, flexWrap: "wrap"}}>
+        {filteredPokemons.map((pokemon, i) =>(
           <PokemonID key={i} pokemon={pokemon} />
           )
         )

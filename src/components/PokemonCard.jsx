@@ -1,12 +1,10 @@
-const Card = ({ children, borderColor}) => {
+const Card = ({ children}) => {
   return (
-    <div
+    <div className="pokemon-card"
       style={{
-        border: "1px solid",
-        borderColor: borderColor,
-        borderRadius: 8,
+        backgroundColor: "#f0f0f0",
+        borderRadius: 16,
         padding: 16,
-        backgroundColor: borderColor + "33",
         width: "150px",
         height: "250px",
       }}
