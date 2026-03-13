@@ -2,6 +2,7 @@ import { useState } from 'react'
 import './App.css'
 import PokemonID from './components/PokemonId'
 import FilterButton from './components/PokemonTypeButton'
+import pokemonLogo from './assets/pokemon-logo.png'
 
 
 
@@ -41,10 +42,10 @@ function App() {
       <div style={{
         display: "flex", 
         justifyContent: "space-between", 
-        alignItems: "center"}}>
-  
+        alignItems: "center", 
+        marginRight:'70px'}}>
         <h1> Pokédex</h1>
-        <img src="../public/pokemon-logo.png" style={{height: "45px"}} />
+        <img src={pokemonLogo} style={{height: "50px"}} />
       </div>
 
       <div style={{display: "flex", gap: 8, flexWrap: "wrap", marginBottom: 16, alignItems: "center"}}>

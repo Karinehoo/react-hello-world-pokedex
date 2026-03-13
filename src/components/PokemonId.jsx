@@ -26,8 +26,10 @@ const PokemonId = ({ pokemon }) => {
           
           </div>
 
-          <p style={{margin: "0 0 2px 0", fontSize: "11px", color: "gray"}}>N° {String(pokemon.id).padStart(4, "0")}</p>
-          <h3 style={{margin: "0 0 8px 0", fontSize: "16px"}}>{pokemon.name}</h3>
+          <div style={{display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 8, marginLeft: '2px'}}>
+            <p style={{margin: 0, fontSize: "11px", color: "gray"}}>N° {String(pokemon.id).padStart(4, "0")}</p>
+            <h3 style={{margin: 0, fontSize: "16px"}}>{pokemon.name}</h3>
+          </div>
 
           <span style={{
             backgroundColor: typeColors[pokemon.type],
